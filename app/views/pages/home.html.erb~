@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>To-Do List</title>
+	</head>
+  <body>
+	<h1>Welcome!</h1>
+	<%= link_to "Sign up now!", :class => "signup_button" %>
+  </body>
+</html>
