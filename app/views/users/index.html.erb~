@@ -1,0 +1,14 @@
+<% if current_user.admin? %>
+<h1>All users</h1>
+
+<%= will_paginate %>
+
+<ul class="users">
+   <%= render @users %>
+</ul>
+
+<%= will_paginate %>
+
+<% else %>
+<h1>Must be Admin to view this page %>
+<% end %>
