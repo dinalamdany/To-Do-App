@@ -21,6 +21,7 @@ gem 'jquery-rails'
 group :development do
 	gem 'rspec-rails', '2.6.1'
 	gem 'faker', '0.3.1'
+	gem 'annotate'
 end
 
 # To use ActiveModel has_secure_password
