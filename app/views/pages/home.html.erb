@@ -1,2 +1,8 @@
-<h1>Welcome!</h1>
-<%= link_to "Sign up now!", signup_path,  :class => "signup_button" %>
+<% if signed_in? %>
+  <h1>New List</h1>
+  <%= render 'shared/list_form' %>
+  <%= render 'shared/feed' %>
+<% else %>
+  <h1>Welcome!</h1>
+  <%= link_to "Sign up now!", signup_path,  :class => "signup_button" %>
+<% end %>

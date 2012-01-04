@@ -1,0 +1,5 @@
+<% unless @feed_items.empty? %>
+ <table class="lists" summary="User lists">
+   <%= render :partial => 'lists/list', :collection => @feed_items %>
+ </table>
+<% end %>
