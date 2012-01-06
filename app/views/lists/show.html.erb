@@ -1,0 +1,10 @@
+<h1><%= @title %></h1>
+<table class="List">
+  <tr>
+    <td><% @list.name %></td>
+      <% unless @list.items.empty? %>
+          <%= render @items %>
+      <% end %>
+    </td>
+  </tr>
+</table>
