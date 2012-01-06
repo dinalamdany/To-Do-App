@@ -1,8 +1,5 @@
-<h1>
-<%= @user.name %>
-</h1>
-<% unless @user.lists.empty? %>
-<table class="lists" summary="User lists">
-  <%= render @lists %>
-</table>
-<% end %>
+<h1><%= @user.name %></h1>
+  <% if @user.lists.any? %>
+     <%= render @lists %>
+     <% end %>
+   

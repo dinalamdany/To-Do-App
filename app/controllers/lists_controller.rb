@@ -18,6 +18,12 @@ class ListsController < ApplicationController
     redirect_back_or root_path
   end
 
+  def show
+    @list = current_user.lists.find_by_id(params[:id])
+    @items = @list.items
+    @title = @list.name
+  end
+
   private
 
   def authorized_user

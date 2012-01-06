@@ -13,7 +13,7 @@ def make_users
                        :password => "foobar",
                        :password_confirmation => "foobar")
   admin.toggle!(:admin)
-  99.times do |n|
+  10.times do |n|
     name = Faker::Name.name
     email = "example-#{n+1}@railstutorial.org"
     password = "password"
@@ -26,7 +26,7 @@ end
 
 def make_lists
   5.times do
-    User.all(:limit => 6).each do |user|
+    User.all.each do |user|
       user.lists.create!(:name => Faker::Name.name)
     end
   end

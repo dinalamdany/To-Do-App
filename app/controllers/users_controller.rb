@@ -8,12 +8,6 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def show
-    @user = User.find(params[:id])
-    @title = @user.name
-    @lists = @user.lists
-  end
-
   def create
     @user = User.new(params[:user])
     if @user.save
@@ -50,6 +44,12 @@ class UsersController < ApplicationController
     User.find(params[:id]).destroy
     flash[:success] = "User destroyed"
     redirect_to users_path
+  end
+
+  def show
+    @user = User.find(params[:id])
+    @title = @user.name
+    @lists = @user.lists
   end
 
   private

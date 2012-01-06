@@ -1,12 +1,7 @@
-<tr>
-  <td class="list">
-    <span class="name"><%= list.name %></span>
-  </td>
-  <% if current_user?(list.user) %>
-  <td>
-    <%= link_to "delete", list, :method => :delete,
+<p><strong><%=link_to list.name, list %></strong>
+<% if current_user?(list.user) %>
+  <%= link_to "delete", list, :method => :delete,
                                      :confirm => "You sure?",
                                      :title => list.name %>
-  </td>
-  <% end %>
-</tr>
+   <% end %>
+</p>

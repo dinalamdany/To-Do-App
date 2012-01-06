@@ -3,6 +3,7 @@ class PagesController < ApplicationController
     @title = "Home"
     if signed_in?
       @list = List.new
+      @lists = current_user.lists
       @feed_items = current_user.feed
     end
   end

@@ -3,7 +3,7 @@ ToDo::Application.routes.draw do
 
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
-  resources :lists, :only => [:create, :destroy]
+  resources :lists
 
   match '/signup', :to => 'users#new'
   match '/signin', :to => 'sessions#new'
