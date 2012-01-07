@@ -3,8 +3,8 @@ class ListsController < ApplicationController
   before_filter :authorized_user, :only => :destroy
 
   def create
-    @list = current_user.lists.build(params[:list])
-    if @list.save
+    @new_list = current_user.lists.build(params[:list])
+    if @new_list.save
       flash[:success] = "List created!"
       redirect_to root_path
     else
@@ -21,6 +21,7 @@ class ListsController < ApplicationController
   def show
     @list = current_user.lists.find_by_id(params[:id])
     @items = @list.items
+    @new_item = Item.new 
     @title = @list.name
   end
 
