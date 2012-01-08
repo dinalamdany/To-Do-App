@@ -1,3 +1,4 @@
-<ul><%= item.content %></ul>
+<ul><%= item.content %> <%= link_to "delete", item, :method => :delete, 
+        :confirm => "You sure?", :title => item.content %></ul>
 
 
