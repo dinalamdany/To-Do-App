@@ -5,7 +5,10 @@ gem 'rails', '3.1.3'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'pg'
+group :production do
+	gem 'pg'
+end
+
 gem 'will_paginate', '3.0.pre2'
 
 # Gems used only for assets and not required
@@ -19,6 +22,7 @@ end
 gem 'jquery-rails'
 
 group :development do
+	gem 'sqlite3'
 	gem 'rspec-rails', '2.6.1'
 	gem 'faker', '0.3.1'
 	gem 'annotate'
@@ -42,6 +46,7 @@ group :test do
   gem 'rspec-rails', '2.6.1'
   gem 'webrat', '0.7.1'
   gem 'factory_girl_rails', '1.0'
+  gem 'sqlite3'
 end
 
 
