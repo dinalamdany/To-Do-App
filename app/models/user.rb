@@ -1,29 +1,18 @@
-# == Schema Information
-#
-# Table name: users
-#
-#  id                 :integer         not null, primary key
-#  name               :string(255)
-#  email              :string(255)
-#  created_at         :datetime
-#  updated_at         :datetime
-#  salt               :string(255)
-#  encrypted_password :string(255)
-#  admin              :boolean         default(FALSE)
-#
-
 require 'digest'
 class User < ActiveRecord::Base
   attr_accessor :password
-  attr_accessible :name, :email, :password, :password_confirmation
+  attr_accessible :name, :email,:number, :password, :password_confirmation
 
   has_many :lists, :dependent => :destroy
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  num_regex = /^(\d[ -\.]?)?(\d{3}[ -\.]?)?\d{3}[ -\.]?\d{4}(x\d+)?$/
 
   validates :name, :presence => true
   validates :email, :presence => true, :format => {:with => email_regex},
   :uniqueness => { :case_sensitive => false}
+  validates :number, :presence => true, :format => {:with => num_regex},
+  :uniqueness => true
 
   #Automatically create the virtal attribute 'password_confirmation'
 
@@ -71,4 +60,20 @@ class User < ActiveRecord::Base
       Digest::SHA2.hexdigest(string)
     end
 end
+
+
+# == Schema Information
+#
+# Table name: users
+#
+#  id                 :integer         not null, primary key
+#  name               :string(255)
+#  email              :string(255)
+#  created_at         :datetime
+#  updated_at         :datetime
+#  salt               :string(255)
+#  encrypted_password :string(255)
+#  admin              :boolean         default(FALSE)
+#  number             :string(255)
+#
 
